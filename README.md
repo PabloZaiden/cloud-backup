@@ -6,7 +6,7 @@ Usage:
 docker run \
     --rm \
     -ti \
-    -v $(pwd)/testContent:/data \
+    -v /directory/that/needs/to/be/backed/up:/data \
     -e AZURE_STORAGE_ACCOUNT="yourstorageaccount" \
     -e AZURE_STORAGE_ACCOUNT_CONTAINER="your-container" \
     -e AZURE_STORAGE_SAS_TOKEN="your-sas-token" \
