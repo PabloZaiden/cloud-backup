@@ -10,5 +10,5 @@ docker run \
     -e AZURE_STORAGE_ACCOUNT="yourstorageaccount" \
     -e AZURE_STORAGE_ACCOUNT_CONTAINER="your-container" \
     -e AZURE_STORAGE_SAS_TOKEN="your-sas-token" \
-    ghcr.io/pablozaiden/cloud-backup:latest
+    ghcr.io/pablozaiden/cloud-backup:v1.0.0
 ```
