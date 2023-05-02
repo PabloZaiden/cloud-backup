@@ -19,8 +19,13 @@ validate_is_set "$AZURE_STORAGE_SAS_TOKEN" "AZURE_STORAGE_SAS_TOKEN"
 currentDate=$(date +%Y-%m-%d-%H-%M-%S)
 zipFileName="backup-$currentDate.zip"
 
+
 echo "Zipping files recursively in /data..."
+# Some files might not be accessible while in use. Live with it.
+# Ignore warnings while zipping. 
+set +e
 zip -r "/$zipFileName" /data
+set -e
 
 echo "Uploading zip file to Azure Storage with azcopy..."
 azcopy copy "/$zipFileName" "https://$AZURE_STORAGE_ACCOUNT.blob.core.windows.net/$AZURE_STORAGE_ACCOUNT_CONTAINER/$zipFileName?$AZURE_STORAGE_SAS_TOKEN"
